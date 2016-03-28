@@ -1,0 +1,39 @@
+html, body, div, h1, h2, h3, h4, h5, h6 {
+  margin: 0 auto;
+  padding: none;
+  background-color: #173042;
+  color: #cfdfda;
+}
+
+.nav {
+  background-color: #173042;
+  height: 70px;
+  border-bottom: 2px solid #cfdfda;
+}
+
+.nav h4 {
+  float: right;
+  display: inline;
+}
+
+#main-container {
+  background-color: #173042;
+  height: 100px;
+  margin-top: 20px;
+}
+
+#logo {
+  height: 60px;
+  margin-top: 5px;
+}
+
+.item {
+  background-color: #cfdfda;
+  height: 200px;
+}
+
+.group-img {
+  max-height: 150px;
+}
+
+/*#173042,#236477,#cfdfda,#7cad3e,#4a6c2f*/
