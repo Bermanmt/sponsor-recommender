@@ -1,14 +1,18 @@
+html, body {
+  background-color: #f4f4f4;
+}
+
 html, body, div, h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: none;
-  background-color: #173042;
-  color: #cfdfda;
+  /*background-color: #f4f4f4;*/
+  color: #d2353a;
 }
 
 .nav {
-  background-color: #173042;
+  background-color: rgba(210, 53, 58, 0.1);
   height: 70px;
-  border-bottom: 2px solid #cfdfda;
+  /*border-bottom: 2px solid #d2353a;*/
 }
 
 .nav h4 {
@@ -17,14 +21,16 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 }
 
 #main-container {
-  background-color: #173042;
-  height: 100px;
+  background-color: #f4f4f4;
   margin-top: 20px;
 }
 
 #logo {
-  height: 60px;
-  margin-top: 5px;
+  height: 50px;
+  margin-top: 10px;
+  width: 100px;
+  float: left;
+  border-radius: 4px;
 }
 
 .item {
@@ -34,6 +40,52 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 
 .group-img {
   max-height: 150px;
+}
+
+.nav .container ul {
+  margin-top: 27px;
+  display: inline;
+  text-decoration: none;
+  float: right;
+}
+
+.nav .container ul li {
+  display: inline;
+  text-decoration: none;
+  float: left;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #d2353a;
+  display: inline;
+  margin-top: 30px;
+}
+
+#flecha {
+  position: absolute;
+  top: 6px;
+  right: 110px;
+}
+
+#banner {
+  background-color: #f4f4f4;
+  border-top: 2px solid #508dbd;
+  border-bottom: 2px solid #508dbd;
+  height: 400px;
+  width: 100%;
+}
+
+#featured-meetup {
+  background-color: rgba(225, 225, 225, 0.4);
+  width: 550px;
+  height: 250px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 70px;
 }
 
 /*#173042,#236477,#cfdfda,#7cad3e,#4a6c2f*/

@@ -16,12 +16,24 @@
 <body>
     <div class='nav'>
         <div class='container'>
-            <img src='./static/img/sponsorifylogo.png' id='logo'>
+            <img src='./static/img/sponsorifylogo2.png' id='logo'>
+            <ul id='menu'>   
+                <li><div class='arrow-down' id='flecha'></div></li>
+                <li>User</li>
+            </ul>
 
         </div>
     </div>
+    <div id='banner'>
+        <div class='container'>
+            <div id='featured-meetup'>
+            {{data}}
+            </div>
+        </div>
+
+    </div>
     <div class="container" id="main-container">
-        <h2 style='margin-bottom:30px;'>Top Recommendations</h2>
+        <h3 style='margin-bottom:20px;margin-top:20px'>Top Recommendations</h3>
         <div class="owl-carousel">
             <div class="owl-item"><img class='group-img' src="http://photos3.meetupstatic.com/photos/event/8/6/e/4/highres_83074532.jpeg"><h4>Title</h4></div>
             <div class="owl-item"><img class='group-img' src="http://photos3.meetupstatic.com/photos/event/2/4/f/6/highres_429969462.jpeg"><h4>Title</h4></div>
@@ -53,7 +65,6 @@
             margin:10,
             nav:true,
             navText:['&#x27;pruebs&#x27;','&#x27;prev&#x27;'],
-            dots:true,
             responsive:{
                 0:{
                     items:1

@@ -1,12 +1,13 @@
 from flask import Flask, render_template
-from controllers import main
+from controllers import main,unpersonal_recommender
 import json
 
 app= Flask(__name__)
 
 @app.route('/',methods=['GET','POST'])
 def home():
-	return render_template('home.html')
+	data= unpersonal_recommender.recommend_unpersonal()
+	return render_template('home.html', data=data)
 
 
 
