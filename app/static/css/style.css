@@ -1,16 +1,16 @@
 html, body {
-  background-color: #f4f4f4;
+  background-color: rgba(80, 141, 189, 0.5);
 }
 
 html, body, div, h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: none;
   /*background-color: #f4f4f4;*/
-  color: #d2353a;
+  color: #14100f;
 }
 
 .nav {
-  background-color: rgba(210, 53, 58, 0.1);
+  /*background-color: rgba(80, 141, 189, 0.5);*/
   height: 70px;
   /*border-bottom: 2px solid #d2353a;*/
 }
@@ -21,8 +21,9 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 }
 
 #main-container {
-  background-color: #f4f4f4;
+  /*background-color: rgba(80, 141, 189, 0.5);*/
   margin-top: 20px;
+  padding-bottom: 50px;
 }
 
 #logo {
@@ -40,6 +41,9 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 
 .group-img {
   max-height: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  margin: 0 auto;
 }
 
 .nav .container ul {
@@ -86,6 +90,32 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   border-radius: 5px;
   margin-top: 70px;
+}
+
+.slider-item {
+  background-color: none;
+  max-height: 150px;
+  min-height: 150px;
+  margin: 0 10px 0 10px;
+}
+
+.slick-list {
+  margin: 0 5px 0 5px;
+  padding: 5px;
+}
+
+.slick-slider {
+  margin: 0 20px 0 20px;
+}
+
+.carousel-text {
+  text-align: center;
+  margin-top: 7px;
+  overflow: hidden;
+  white-space: nowrap;
+  /* Don't forget this one */
+  text-overflow: ellipsis;
+  font-size: 15px;
 }
 
 /*#173042,#236477,#cfdfda,#7cad3e,#4a6c2f*/

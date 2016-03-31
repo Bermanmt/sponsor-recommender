@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="static/css/bootstrap.min.css" rel="stylesheet" media ="screen">
 	<link href="static/css/dc.css" rel="stylesheet" media ="screen">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick-theme.css"/>
+
     <link href="static/css/owl.carousel.css" rel="stylesheet" media ="screen">
     <link href="static/css/style.css" rel="stylesheet" media ="screen">
 	<link href='http://fonts.googleapis.com/css?family=Lato:200,400' rel='stylesheet' type='text/css'>
@@ -27,28 +30,30 @@
     <div id='banner'>
         <div class='container'>
             <div id='featured-meetup'>
-            {{data}}
+               {{data[1]}}
             </div>
         </div>
 
     </div>
     <div class="container" id="main-container">
         <h3 style='margin-bottom:20px;margin-top:20px'>Top Recommendations</h3>
-        <div class="owl-carousel">
-            <div class="owl-item"><img class='group-img' src="http://photos3.meetupstatic.com/photos/event/8/6/e/4/highres_83074532.jpeg"><h4>Title</h4></div>
-            <div class="owl-item"><img class='group-img' src="http://photos3.meetupstatic.com/photos/event/2/4/f/6/highres_429969462.jpeg"><h4>Title</h4></div>
-
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            <div class="owl-item">1</div>
-            
+        <div class="slick-slider" id='general-carousel' >
+            {%for group in data %}
+                <div class="slick-list"><img class='group-img' src="{{group.group_photo.photo_link}}" ><h4 class='carousel-text'>{{group.name}}</h4> </div>
+                
+            {%endfor%}
+        </div>
+        <br>
+        <br>
+        <h3 style='margin-bottom:20px;margin-top:20px'>Top for Tech</h3>
+        <div class="slick-slider" id='tech-carousel' >
+                
+        </div>
+        <br>
+        <br>
+        <h3 style='margin-bottom:20px;margin-top:20px'>Top for Business</h3>
+        <div class="slick-slider" id='business-carousel' >
+                
         </div>
        <!--  <div class="owl-controls">
                 <div class="owl-nav">
@@ -59,8 +64,10 @@
     </div>
     <script type="text/javascript" src='static/js/jquery-1.12.2.min.js'> </script>
     <script type="text/javascript" src='static/js/owl.carousel.min.js'> </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+
     <script>
-        $('.owl-carousel').owlCarousel({
+        /*$('#general-carousel').owlCarousel({
             loop:true,
             margin:10,
             nav:true,
@@ -77,6 +84,78 @@
                 }
             }
         })
+        $('#tech-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            navText:['&#x27;pruebs&#x27;','&#x27;prev&#x27;'],
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        })*/
+        $(document).ready(function(){
+            $('#tech-carousel').slick({
+                infinte:true,
+                slidesToShow:5,
+                slidesToScroll:5,
+                dots:true,
+                prevArrow:'<button type="button" class="slick-prev" style="color:red;">Previous</button>'
+            });
+            $('#general-carousel').slick({
+                infinte:true,
+                slidesToShow:5,
+                slidesToScroll:5,
+                dots:true
+            });
+            $('#business-carousel').slick({
+                infinte:true,
+                slidesToShow:5,
+                slidesToScroll:5,
+                dots:true
+            });
+        });
+        
+  
+    //Data Handling
+
+        //General Variable
+        var data = {{data|safe}};
+        var top15_tech;
+        //Variables for secondary sliders
+        var getTop15=function(groups, category_name){
+            var top=[];
+            for(i=0;i<groups.length;i++){
+                if(groups[i].category.name==category_name){
+                    top.push(groups[i]);
+                }
+                //console.log(top10);
+            }
+            var top15=top.slice(0,15);
+            return top15
+        }
+
+        top15_tech = getTop15(data,'tech');
+        top15_business=getTop15(data,'career/business');
+        console.log(top15_business)
+
+        for(i=0;i<top15_tech.length;i++){
+            //console.log(top15_tech[i]);
+            $('#tech-carousel').append("<div class='slick-list'><img class='group-img' src="+top15_tech[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div>");
+        }
+        for(i=0;i<top15_business.length;i++){
+            //console.log(top15_tech[i]);
+            $('#business-carousel').append("<div class='slick-list'><img class='group-img' src="+top15_business[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div>");
+        }
+        
+
     </script>
 
 </body>

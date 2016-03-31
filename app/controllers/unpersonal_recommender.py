@@ -1,5 +1,12 @@
 from dataframe_handling import create_df
+import pymongo
 import numpy as np
+import json
+
+client = pymongo.MongoClient()
+db = client.meetup
+#groups_col=db.groups
+groups_clean_extra_col = db.groups_clean_extra
 
 def recommend_unpersonal():
 	df= create_df()
@@ -18,4 +25,12 @@ def recommend_unpersonal():
 	recommender_df['ranking'] = (recommender_df['aggregate']-recommender_df['aggregate'].min())
 	recommender_df['ranking'] =recommender_df['ranking']/recommender_df['ranking'].max()
 	ranked_df = recommender_df[['name','category_name','sponsor_count','ranking']].sort_values(by=['ranking'], ascending=False)
-	return ranked_df[:500].as_matrix()
+	return ranked_df[:500].T.to_dict().values()
+
+def get_top_100_groups():
+	top_groups= groups_clean_extra_col.find({'category':{'$exists':True},'group_photo':{'$exists':True}},{'_id':1,'name':1,'sponsor_score':1,'category':1,'group_photo':1}).sort([("sponsor_score", pymongo.DESCENDING)]).limit(100)
+	top_list = []
+	for i in top_groups:
+		i['_id']=str(i['_id'])
+		top_list.append(i)
+	return json.dumps(top_list)
