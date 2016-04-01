@@ -11,7 +11,7 @@
 
     <link href="static/css/owl.carousel.css" rel="stylesheet" media ="screen">
     <link href="static/css/style.css" rel="stylesheet" media ="screen">
-	<link href='http://fonts.googleapis.com/css?family=Lato:200,400' rel='stylesheet' type='text/css'>
+	<!--<link href='http://fonts.googleapis.com/css?family=Lato:200,400' rel='stylesheet' type='text/css'>-->
 	<style>
 
     </style>
@@ -37,10 +37,12 @@
     </div>
     <div class="container" id="main-container">
         <h3 style='margin-bottom:20px;margin-top:20px'>Top Recommendations</h3>
+        <div style='background-color:black;height:100px;width:40px; float:left;'></div>
         <div class="slick-slider" id='general-carousel' >
+
             {%for group in data %}
-                <div class="slick-list"><img class='group-img' src="{{group.group_photo.photo_link}}" ><h4 class='carousel-text'>{{group.name}}</h4> </div>
-                
+                <!--<div class="slick-list" data-id="{{group._id}}"><img class='group-img' src="{{group.group_photo.photo_link}}" ><h4 class='carousel-text'>{{group.name}}</h4></div>-->
+                <div class="slick-list" data-id="{{group._id}}" style='background-image: url({{group.group_photo.photo_link}});'><div class='overlay'></div><h4 class='carousel-text'>{{group.name}}</h4></div>
             {%endfor%}
         </div>
         <br>
@@ -148,13 +150,21 @@
 
         for(i=0;i<top15_tech.length;i++){
             //console.log(top15_tech[i]);
-            $('#tech-carousel').append("<div class='slick-list'><img class='group-img' src="+top15_tech[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div>");
+            $('#tech-carousel').append("<div class='slick-list' data-id='"+top15_business[i]._id+"'><img class='group-img' src="+top15_tech[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div>");
         }
         for(i=0;i<top15_business.length;i++){
             //console.log(top15_tech[i]);
-            $('#business-carousel').append("<div class='slick-list'><img class='group-img' src="+top15_business[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div>");
+            $('#business-carousel').append("<div class='slick-list' data-id='"+top15_business[i]._id+"'><img class='group-img' src="+top15_business[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div>");
         }
         
+        //ondivclick
+        var slick_elem=document.getElementsByClassName('slick-list');
+
+        $('.slick-list').click(function(e){
+            var currentID = $(this).attr('data-id');
+            console.log(currentID);
+        })
+
 
     </script>
 
