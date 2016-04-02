@@ -2,6 +2,7 @@ from dataframe_handling import create_df
 import pymongo
 import numpy as np
 import json
+from bson.objectid import ObjectId
 
 client = pymongo.MongoClient()
 db = client.meetup
@@ -34,3 +35,7 @@ def get_top_100_groups():
 		i['_id']=str(i['_id'])
 		top_list.append(i)
 	return json.dumps(top_list)
+
+def get_one_event(_id):
+	event=groups_clean_extra_col.find_one({'_id':ObjectId(_id)},{'_id':0})
+	return event

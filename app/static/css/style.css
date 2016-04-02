@@ -103,7 +103,7 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .slick-list {
-  margin: 0 5px 0 5px;
+  margin: 0 8px 0 8px;
   padding: 5px;
   min-height: 180px;
   background-size: 100% 100%;
@@ -125,27 +125,100 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 .overlay {
   min-width: 230px;
   min-height: 200px;
-  box-shadow: inset 0px 0px 0 2000px rgba(125, 125, 125, 0.5);
+  box-shadow: inset 0px 0px 0 2000px rgba(10, 10, 10, 0.6);
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: -1;
 }
 
 .slick-slider {
-  margin: 0 20px 0 20px;
+  margin: 0 30px 0 30px;
 }
 
 .carousel-text {
-  text-align: center;
+  text-align: left;
   margin-top: 7px;
   overflow: hidden;
   white-space: nowrap;
   /* Don't forget this one */
   text-overflow: ellipsis;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
-  z-index: 1;
+  z-index: 1000;
+  transform: translate(0, 600%);
+}
+
+.carousel-text-category {
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  /* Don't forget this one */
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: white;
+  z-index: 1000;
+  transform: translate(0, 800%);
+}
+
+.slick-prev,
+.slick-next {
+  display: none;
+}
+
+.slick-arrow {
+  display: none;
+}
+
+.arrow {
+  color: #14100f;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.arrow-left {
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  left: -2%;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 40%;
+  right: -2%;
+  cursor: pointer;
+}
+
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+#event-modal {
+  width: 1000px;
+  height: 500px;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.bordered {
+  border: 1px dashed black;
+  min-height: 50px;
+}
+
+.modal-image {
+  max-width: 300px;
 }
 
 /*#173042,#236477,#cfdfda,#7cad3e,#4a6c2f*/
