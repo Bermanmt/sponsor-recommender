@@ -11,7 +11,8 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .nav {
-  background-color: rgba(80, 141, 189, 0.5);
+  background-color: #f5f5f5;
+  /*background-color: rgba(80, 141, 189, 0.5);*/
   height: 70px;
   /*border-bottom: 2px solid #d2353a;*/
 }
@@ -76,11 +77,11 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   right: 110px;
 }
 
-#banner {
-  background-color: #f4f4f4;
-  border-top: 2px solid #508dbd;
-  border-bottom: 2px solid #508dbd;
-  height: 400px;
+#banner-main {
+  background-color: #508dbd;
+  border-top: 3px solid rgba(51, 51, 51, 0.85);
+  border-bottom: 3px solid rgba(51, 51, 51, 0.85);
+  height: 70px;
   width: 100%;
 }
 
@@ -93,11 +94,30 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   margin-top: 70px;
 }
 
+#banner {
+  background-color: #508dbd;
+  border-top: 3px solid rgba(51, 51, 51, 0.85);
+  border-bottom: 3px solid rgba(51, 51, 51, 0.85);
+  height: 500px;
+  width: 100%;
+}
+
+#filter-meetups {
+  background-color: rgba(225, 225, 225, 0.4);
+  width: 100%;
+  height: 400px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 7px;
+  padding: 20px;
+  color: #333;
+}
+
 .slider-item {
   background-color: none;
-  max-height: 150px;
-  min-height: 150px;
-  margin: 0 10px 0 10px;
+  max-height: 130px;
+  min-height: 130px;
+  margin: 0 3px 0 3px;
   background-color: red;
   box-shadow: inset 0px 0px 0 2000px rgba(0, 0, 0, 0.5);
 }
@@ -105,11 +125,16 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 .slick-list {
   margin: 0 8px 0 8px;
   padding: 5px;
-  min-height: 180px;
+  min-height: 130px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  cursor: pointer;
   /*border: 2px solid red;/*
   /*box-shadow: inset 0px 0px 0 2000px rgba(0, 0, 0, 0.5);*/
+}
+
+.slick-slide {
+  margin: 5px;
 }
 
 .overlay-span {
@@ -123,13 +148,32 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .overlay {
-  min-width: 230px;
-  min-height: 200px;
-  box-shadow: inset 0px 0px 0 2000px rgba(10, 10, 10, 0.6);
+  min-width: 200px;
+  min-height: 130px;
+  box-shadow: inset 0px 0px 0 2000px rgba(0, 0, 0, 0.7);
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  /*display: none;*/
+}
+
+.overlay:hover {
+  opacity: 1;
+  /*display: none;*/
+}
+
+.overlay:hover h4 {
+  opacity: 1;
+}
+
+.overlay:hover h6 {
+  opacity: 0;
 }
 
 .slick-slider {
@@ -140,25 +184,37 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   text-align: left;
   margin-top: 7px;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: normal;
   /* Don't forget this one */
   text-overflow: ellipsis;
   font-size: 18px;
-  color: white;
+  color: #EEE;
   z-index: 1000;
-  transform: translate(0, 600%);
+  opacity: 0;
+  margin-right: 30px;
+  margin-left: 10px;
+  position: absolute;
+  bottom: 10px;
+  /*display: none;*/
+  /*transform: translate(0, 600%);*/
 }
 
 .carousel-text-category {
   text-align: left;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: normal;
   /* Don't forget this one */
   text-overflow: ellipsis;
   font-size: 14px;
-  color: white;
+  color: #508dbd;
   z-index: 1000;
-  transform: translate(0, 800%);
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  /*transform: translate(0, 650%);*/
+  opacity: 0;
+  /*display: none;*/
 }
 
 .slick-prev,
@@ -171,9 +227,13 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .arrow {
-  color: #14100f;
+  color: rgba(20, 16, 15, 0.15);
   font-size: 30px;
   cursor: pointer;
+}
+
+.arrow:hover {
+  color: rgba(20, 16, 15, 1);
 }
 
 .arrow-left {
@@ -198,7 +258,7 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   right: 0;
   z-index: 10000;
   background-color: rgba(0, 0, 0, 0.5);
-  display: block;
+  display: none;
 }
 
 #event-modal {
@@ -217,8 +277,49 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   min-height: 50px;
 }
 
+.modal-title {}
+
 .modal-image {
-  max-width: 300px;
+  max-width: 210px;
+  min-width: 210px;
+  min-height: 210px;
+  max-height: 210px;
+  margin: 0 auto;
+}
+
+#modal-description {
+  max-height: 120px;
+  max-width: 950px;
+  overflow: scroll;
+  background-color: #EEE;
+}
+
+.modal-desc-title {
+  font-size: 16px;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+#modal-logo {
+  width: 90px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.welcome-par {
+  color: white;
+  text-align: justify;
+}
+
+#welcome-title {
+  color: white;
+}
+
+.signup-input {
+  width: 100%;
 }
 
 /*#173042,#236477,#cfdfda,#7cad3e,#4a6c2f*/

@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,jsonify
+from flask import Flask, render_template,request,jsonify,Response
 from controllers import main,unpersonal_recommender
 import json
 import ast
@@ -9,15 +9,23 @@ app= Flask(__name__)
 def home():
 	data= unpersonal_recommender.get_top_100_groups()
 	data = ast.literal_eval(data)
+	print data
 	return render_template('home.html', data=data)
+
+
+@app.route('/78953578',methods=['GET','POST'])
+def login():
+	data= unpersonal_recommender.get_top_100_groups()
+	data = ast.literal_eval(data)
+	return render_template('metis.html', data=data)
 
 @app.route('/event/',methods=['POST'])
 def get_event():
 	event_id = request.args['id']
 	print event_id
 	event = unpersonal_recommender.get_one_event(event_id)
-	return jsonify(event)
-
+	#return jsonify(event)
+	return json.dumps(event)
 
 
 if __name__ == '__main__':
