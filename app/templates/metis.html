@@ -23,7 +23,7 @@
             <img src='./static/img/sponsorifylogo2.png' id='logo'>
             <ul id='menu'>   
                 <li></li>
-                <li><a href='{{url_for("about")}}'>Metis</a></li>
+                <li><a href='{{url_for("get_profile")}}'>Metis</a></li>
                 <li><a href="{{url_for('home')}}">Logout</a></li>
             </ul>
 
@@ -45,9 +45,8 @@
                 <div class='col-md-6 '>
                     <h2 id='welcome-title'>Welcome Back Metis!</h2>
                     <br>
-                    <p class='welcome-par'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum eget odio id tempus. Curabitur eget molestie urna. Aliquam erat volutpat. Nulla non risus eu lacus volutpat auctor. Donec viverra, orci eget hendrerit semper, nisl enim laoreet felis, eget lacinia nisi ex et tellus. Morbi porttitor hendrerit leo, vitae tincidunt tellus feugiat viverra. Pellentesque at odio consequat, tincidunt augue eget, imperdiet erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tincidunt metus at lectus hendrerit, quis consequat enim congue. Mauris at interdum sem, quis volutpat lacus. Ut rutrum sit amet mi id feugiat.</p>
+                   
 
-                    <p class='welcome-par'>Nunc convallis elit purus, eget faucibus magna maximus eu. Sed sagittis suscipit arcu, eu laoreet quam aliquet nec. Donec ac eros nisi. Aenean a nibh non lorem fringilla aliquam. Donec viverra mi et finibus dapibus. Praesent eu pellentesque arcu, ac aliquet arcu. Ut posuere ornare tempor. In a ipsum vel augue efficitur malesuada id sed purus.</p>
                 </div>
                 <div class='col-md-1'></div>
             </div>
@@ -73,8 +72,9 @@
             <div class='container ' style='padding:20px; width:100%; max-height:480px;'>
                 
                 <div class='row'>
-                    <img src='./static/img/sponsorifylogo2.png' id='modal-logo'>
+                    <img src='./static/img/sponsorifylogo2.png' id='modal-logo' style='margin-left:20px;'>
                 </div>
+                <hr>
                 <div class='row '>
                     <div class='col-md-4 '>
                          <img class='modal-image' id='modal-image1'src="http://photos2.meetupstatic.com/photos/event/4/b/f/9/600_444679449.jpeg"/>
@@ -83,15 +83,22 @@
                     <div class='col-md-8 '>
                     <h2 class='modal-title'>This is going to be the title of the event</h2>
                         <div id='stats'>  
-
+                           <span style='font-weight: 600'>Rating:</span>  <span id='rating'></span>
+                           <br>
+                           <span style='font-weight: 600'>Members: </span><span id='members'></span>
+                           <br>
+                          <span style='font-weight: 600'> Description:
+                          </span>
+                           <br>
+                           <div class='row ' id='modal-description'>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <p class='modal-desc-title '>Description:</p>
-                <div class='container'>
-                    <div class='row ' id='modal-description'>
-
-                     </div>
+                <div class='container' style='margin-top:10px'>
+                <a href='' id='modal-link'class='btn' target="_blank">See on Meetup</a>
+                     <button id='add_btn'class='btn btn-success'>+Add</button>
+                     
                </div>
             </div>
         </div>
@@ -210,6 +217,9 @@
             $('#modal-overlay').click(function(e){
                 $('#modal-overlay').css('display','none');
             });
+            $('#add_btn').click(function(e){
+                alert('Your group has been added')
+            });
         
             var getModalInfo = function(data){
                 console.log(data['description']);
@@ -217,6 +227,9 @@
                 $('#modal-image1').attr('src',data.group_photo.photo_link);
                 $('#modal-description').html(data.description);
                 $('.modal-title').text(data.name);
+                $('#rating').text(data.rating);
+                $('#members').text(data.members);
+                $('#modal-link').attr('href',data.link);
 
              }
 

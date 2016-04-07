@@ -264,7 +264,7 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 
 #event-modal {
   width: 1000px;
-  height: 500px;
+  height: 400px;
   background-color: #f4f4f4;
   position: absolute;
   top: 50%;
@@ -292,7 +292,8 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
   max-height: 120px;
   max-width: 950px;
   overflow: scroll;
-  background-color: #EEE;
+  background-color: #f4f4f4;
+  margin: 0 10px 0 10px;
 }
 
 .modal-desc-title {
@@ -321,6 +322,11 @@ html, body, div, h1, h2, h3, h4, h5, h6 {
 
 .signup-input {
   width: 100%;
+}
+
+.checkbox {
+  margin: 10px;
+  display: inline-flex;
 }
 
 /*#173042,#236477,#cfdfda,#7cad3e,#4a6c2f*/

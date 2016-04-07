@@ -1,0 +1,104 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" media ="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="static/css/dc.css" rel="stylesheet" media ="screen">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick-theme.css"/>
+
+    <link href="static/css/owl.carousel.css" rel="stylesheet" media ="screen">
+    <link href="static/css/style.css" rel="stylesheet" media ="screen">
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:200,400' rel='stylesheet' type='text/css'>-->
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class='nav'>
+        <div class='container'>
+            <img src='./static/img/sponsorifylogo2.png' id='logo'>
+            <ul id='menu'>   
+                <li></li>
+                <li><a href='{{url_for("login")}}'>Main</a></li>
+                <li><a href="{{url_for('home')}}">Logout</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div id='banner-main' style='height:900px'>
+        <br>
+        <br>
+        <div class='container '>
+            
+            <br>
+            <div class='row '>
+                <div class='col-md-3'></div>
+                <div class='col-md-6' style='color:white;'>
+                <h2 style='color:white;'>Profile information</h2>
+                <br>
+                <form>
+                    <label for='name'>Name:</label>
+                    <input type='text' class='form-control' value='Andres' name='name'>
+                    <br>
+                    <label for='lastname'>Last Name:</label>
+                    <input type='text' class='form-control' value='Masis' name='lastname'>
+                    <br>
+                    <label for='company'>Company:</label>
+                    <input type='text' class='form-control' value='Metis' name='company'>
+                    <br>
+                    <label for='website'>Website:</label>
+                    <input type='text' class='form-control' value='www.thisismetis.com' name='website'>
+                    <br>
+                    <label for='description'>Description:</label>
+                    <textarea type='text' class='form-control' value='Metis' name='description' rows=7>Metis accelerates the careers of data scientists by providing full-time immersive bootcamps, evening professional development courses, online training and corporate programs.Train you to think and act like a data scientist. Teach you the most essential skills and technologies. Immerse you in real-world, complex problems.Create opportunities to connect with prospective employers. Provide you with excellent student support.Inject continual fun, passion, and excitement into your experience at Metis.</textarea> 
+                    <br>
+                    <input class='checkbox'type='checkbox' value='Arts and Culture'>Arts & culture
+                    <input class='checkbox'type='checkbox' value='Book Clubs'>Book Clubs
+                    <input type='checkbox' value='Career and Business' checked>Career & Business
+                    <input type='checkbox' value='Cars and Motorcycles'>Cars & Motorcycles
+                    <input type='checkbox' value='Community & Environment'>Community & Environment
+                    <input type='checkbox' value='Dancing'>Dancing
+                    <input type='checkbox' value='Education & Learning'>Education & Learning
+                    <input type='checkbox' value='Fashion & Beauty'>Fashion & Beauty
+                    <input type='checkbox' value='Fitness'>Fitness
+                    <input type='checkbox' value='Food & Drink'>Food & Drink
+                    <input type='checkbox' value='Games'>Games
+                    <input type='checkbox' value='Movements & Politics'>Movements & Politics
+                    <input type='checkbox' value='Health & Wellbeing'>Health & Wellbeing
+                    <input type='checkbox' value='Hobbies & Crafts'>Hobbies & Crafts
+                    <input type='checkbox' value='Language & Ethnic Identity'>Language & Ethnic Identity
+                    <input type='checkbox' value='Movies & Film'>Movies & Film
+                    <input type='checkbox' value='Music'>Music
+                    <input type='checkbox' value='Outdoors & Adventure'>Outdoors & Adventure
+                    <input type='checkbox' value='Socializing'>Socializing
+                    <input type='checkbox' value='Tech' checked> Tech
+                    <br>
+                    <br>
+                    <input type='submit' class='btn btn-success' value='Update'>
+                </form>
+                </div>
+                <div class='col-md-3'></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" id="main-container">
+      
+       
+    </div>
+
+
+
+    <script type="text/javascript" src='static/js/jquery-1.12.2.min.js'> </script>
+    <script>
+        var cat = ['Arts & Culture', 'Book Clubs', 'Career & Business', 'Cars & Motorcycles', 'Community & Environment', 'Dancing', 'Education & Learning', 'Fashion & Beauty', 'Fitness', 'Food & Drink', 'Games', 'Movements & Politics', 'Health & Wellbeing', 'Hobbies & Crafts', 'Language & Ethnic Identity', 'LGBT', 'Lifestyle', 'Movies & Film', 'Music', 'New Age & Spirituality', 'Outdoors & Adventure', 'Paranormal', 'Parents & Family', 'Pets & Animals', 'Photography', 'Religion & Beliefs', 'Sci-Fi & Fantasy', 'Singles', 'Socializing', 'Sports & Recreation', 'Support', 'Tech', 'Writing']
+
+
+    </script>
+
+</body>
+</html>

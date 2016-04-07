@@ -49,6 +49,10 @@ def get_event():
 	#return jsonify(event)
 	return json.dumps(event)
 
+@app.route('/profile', methods=['GET','POST'])
+def get_profile():
+	return render_template('profile.html')
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
