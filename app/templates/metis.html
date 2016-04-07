@@ -1,19 +1,19 @@
 <!Doctype html>
 <html>
 <head>
-	<title>Dashboard</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="static/css/bootstrap.min.css" rel="stylesheet" media ="screen">
+    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" media ="screen">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link href="static/css/dc.css" rel="stylesheet" media ="screen">
+    <link href="static/css/dc.css" rel="stylesheet" media ="screen">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick-theme.css"/>
 
     <link href="static/css/owl.carousel.css" rel="stylesheet" media ="screen">
     <link href="static/css/style.css" rel="stylesheet" media ="screen">
-	<!--<link href='http://fonts.googleapis.com/css?family=Lato:200,400' rel='stylesheet' type='text/css'>-->
-	<style>
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:200,400' rel='stylesheet' type='text/css'>-->
+    <style>
 
     </style>
 </head>
@@ -22,16 +22,34 @@
         <div class='container'>
             <img src='./static/img/sponsorifylogo2.png' id='logo'>
             <ul id='menu'>   
-                <li><div class='arrow-down' id='flecha'></div></li>
-                <li><a href="{{url_for('home')}}">Metis</a></li>
+                <li></li>
+                <li><a href='{{url_for("about")}}'>Metis</a></li>
+                <li><a href="{{url_for('home')}}">Logout</a></li>
             </ul>
 
         </div>
     </div>
-    <div id='banner'>
-        <div class='container'>
-            <div id='featured-meetup'>
-               {{data[0].rating}}
+    <div id='banner-main'>
+        <br>
+        <br>
+        <div class='container '>
+            <div class='row '>
+            <div class='col-md-1'></div>
+                <div class='col-md-4 '>
+                    <div id='featured-meetup'>
+
+                        
+                    </div>
+                </div>
+                
+                <div class='col-md-6 '>
+                    <h2 id='welcome-title'>Welcome Back Metis!</h2>
+                    <br>
+                    <p class='welcome-par'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum eget odio id tempus. Curabitur eget molestie urna. Aliquam erat volutpat. Nulla non risus eu lacus volutpat auctor. Donec viverra, orci eget hendrerit semper, nisl enim laoreet felis, eget lacinia nisi ex et tellus. Morbi porttitor hendrerit leo, vitae tincidunt tellus feugiat viverra. Pellentesque at odio consequat, tincidunt augue eget, imperdiet erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tincidunt metus at lectus hendrerit, quis consequat enim congue. Mauris at interdum sem, quis volutpat lacus. Ut rutrum sit amet mi id feugiat.</p>
+
+                    <p class='welcome-par'>Nunc convallis elit purus, eget faucibus magna maximus eu. Sed sagittis suscipit arcu, eu laoreet quam aliquet nec. Donec ac eros nisi. Aenean a nibh non lorem fringilla aliquam. Donec viverra mi et finibus dapibus. Praesent eu pellentesque arcu, ac aliquet arcu. Ut posuere ornare tempor. In a ipsum vel augue efficitur malesuada id sed purus.</p>
+                </div>
+                <div class='col-md-1'></div>
             </div>
         </div>
 
@@ -39,50 +57,63 @@
     <div class="container" id="main-container">
         <h3 style='margin-bottom:20px;margin-top:20px'>Top Recommendations</h3>
         <div class="slick-slider" id='general-carousel' >
-
-                    </div>
-        <br>
-        <br>
+        </div>
+     
         <h3 style='margin-bottom:20px;margin-top:20px'>Top for Tech</h3>
         <div class="slick-slider" id='tech-carousel' ></div>
-        <br>
-        <br>
+   
         <h3 style='margin-bottom:20px;margin-top:20px'>Top for Business</h3>
         <div class="slick-slider" id='business-carousel'></div>
        
     </div>
+
+    <!--MODAL-->
      <div id='modal-overlay'>
         <div id='event-modal'>
-            <div class='container bordered' style='padding:20px; width:100%; max-height:480px;'>
-                <h2 class='modal-title bordered'>This is going to be the title of the event</h2>
-                <div class='row bordered'>
-                    <div class='col-md-4 bordered'>
-                         <img class='modal-image' src="http://photos2.meetupstatic.com/photos/event/4/b/f/9/600_444679449.jpeg"/>
+            <div class='container ' style='padding:20px; width:100%; max-height:480px;'>
+                
+                <div class='row'>
+                    <img src='./static/img/sponsorifylogo2.png' id='modal-logo'>
+                </div>
+                <div class='row '>
+                    <div class='col-md-4 '>
+                         <img class='modal-image' id='modal-image1'src="http://photos2.meetupstatic.com/photos/event/4/b/f/9/600_444679449.jpeg"/>
                          
                     </div>
-                    <div class='col-md-8 bordered'>
-                        
+                    <div class='col-md-8 '>
+                    <h2 class='modal-title'>This is going to be the title of the event</h2>
+                        <div id='stats'>  
+
+                        </div>
                     </div>
                 </div>
-               
+                <p class='modal-desc-title '>Description:</p>
+                <div class='container'>
+                    <div class='row ' id='modal-description'>
+
+                     </div>
+               </div>
             </div>
         </div>
     </div>
+
+    <!--MODAL end-->
     <script type="text/javascript" src='static/js/jquery-1.12.2.min.js'> </script>
     <script type="text/javascript" src='static/js/owl.carousel.min.js'> </script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
-    <!--<script>
-        var data = {{data|safe}};
-        console.log(typeof data[0]);
-    </script>-->
-   <script>
-       
+    <!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    
+
+    <script>
+      //////////////////////////////
+     //Settings for the Carousels//
+    //////////////////////////////
         $(document).ready(function(){
             $('#tech-carousel').slick({
                 infinte:true,
                 slidesToShow:5,
                 slidesToScroll:5,
-                dots:true,
+                dots:false,
                 prevArrow:'<span class="glyphicon glyphicon-chevron-left arrow arrow-left" ></span>',
                 nextArrow:'<span class="glyphicon glyphicon-chevron-right arrow arrow-right" ></span>'
             });
@@ -90,7 +121,7 @@
                 infinte:true,
                 slidesToShow:5,
                 slidesToScroll:5,
-                dots:true,
+                dots:false,
                 prevArrow:'<span class="glyphicon glyphicon-chevron-left arrow arrow-left" ></span>',
                 nextArrow:'<span class="glyphicon glyphicon-chevron-right arrow arrow-right" ></span>'
             });
@@ -98,33 +129,23 @@
                 infinte:true,
                 slidesToShow:5,
                 slidesToScroll:5,
-                dots:true,
+                dots:false,
                 prevArrow:'<span class="glyphicon glyphicon-chevron-left arrow arrow-left" ></span>',
                 nextArrow:'<span class="glyphicon glyphicon-chevron-right arrow arrow-right" ></span>'
             });
         });
         
   
-    //Data Handling
+      //////////////////////////
+     //Carousel Data Handling//
+    //////////////////////////
 
-        //General Variable
+    //General Variables//
         var data = {{data|safe}};
-        console.log(data);
-        //var parsed_data = [];
-        //var parsed_data = JSON.parse()
-        //var parseToJson=function(s){
-        //    return JSON.parse(s.replace(/\bNaN\b/g, "null"))
-        //}
-
-        // for(i=0;i<new_data.length;i++){
-        //     parsed_data.push(parseToJson(new_data[i]));
-        // }
-        // console.log(parsed_data[0].ranking);
-        //console.log(data);
         var top15_tech;
         var top25_general;
 
-        //Variables for secondary sliders
+    //Variables for secondary sliders
         var getTop15=function(groups, category_name){
             var top=[];
             for(i=0;i<groups.length;i++){
@@ -144,76 +165,78 @@
             return top
         }
 
+        var populateCarousels=function(data){
+            top25_general=getTop25(data);
+            top15_tech = getTop15(data,'tech');
+            top15_business=getTop15(data,'career/business');
+            //console.log(top15_business)
 
-        top25_general=getTop25(data);
-        top15_tech = getTop15(data,'tech');
-        top15_business=getTop15(data,'career/business');
-        console.log(top15_business)
+            for(i=0;i<top25_general.length;i++){
+                //console.log(top15_tech[i]);
+                //$('#general-carousel').append("<div class='slick-list' data-id='"+top25_general[i]._id+"'><img class='group-img' src="+top25_general[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top25_general[i].name+"</h4></div>");
+                $('#general-carousel').append("<div class='slick-list' data-id="+top25_general[i]._id+" style='background-image: url("+top25_general[i].group_photo.photo_link+");'><div class='overlay'><h4 class='carousel-text'>"+top25_general[i].name+"</h4><h6 class='carousel-text-category'>#"+top25_general[i].category.name+"</h6></div></div>");
+                
+            }
 
-        for(i=0;i<top25_general.length;i++){
-            //console.log(top15_tech[i]);
-            //$('#general-carousel').append("<div class='slick-list' data-id='"+top25_general[i]._id+"'><img class='group-img' src="+top25_general[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top25_general[i].name+"</h4></div>");
-            $('#general-carousel').append("<div class='slick-list' data-id="+top25_general[i]._id+" style='background-image: url("+top25_general[i].group_photo.photo_link+");'><h4 class='carousel-text'>"+top25_general[i].name+"</h4><h6 class='carousel-text-category'>#"+top25_general[i].category.name+"</h6><div class='overlay'></div></div>");
-            
-        }
+            for(i=0;i<top15_tech.length;i++){
+                //console.log(top15_tech[i]);
+                //$('#tech-carousel').append("<div class='slick-list' data-id='"+top15_business[i]._id+"'><img class='group-img' src="+top15_tech[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div>");
+                $('#tech-carousel').append("<div class='slick-list' data-id="+top15_tech[i]._id+" style='background-image: url("+top15_tech[i].group_photo.photo_link+");'><div class='overlay'><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div></div>");
+            }
+            for(i=0;i<top15_business.length;i++){
+                //console.log(top15_tech[i]);
+                //$('#business-carousel').append("<div class='slick-list' data-id='"+top15_business[i]._id+"'><img class='group-img' src="+top15_business[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div>");
+                $('#business-carousel').append("<div class='slick-list' data-id="+top15_business[i]._id+" style='background-image: url("+top15_business[i].group_photo.photo_link+");'><div class='overlay'><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div></div>");
 
-        for(i=0;i<top15_tech.length;i++){
-            //console.log(top15_tech[i]);
-            //$('#tech-carousel').append("<div class='slick-list' data-id='"+top15_business[i]._id+"'><img class='group-img' src="+top15_tech[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div>");
-            $('#tech-carousel').append("<div class='slick-list' data-id="+top15_tech[i]._id+" style='background-image: url("+top15_tech[i].group_photo.photo_link+");'><div class='overlay'></div><h4 class='carousel-text'>"+top15_tech[i].name+"</h4></div>");
-        }
-        for(i=0;i<top15_business.length;i++){
-            //console.log(top15_tech[i]);
-            //$('#business-carousel').append("<div class='slick-list' data-id='"+top15_business[i]._id+"'><img class='group-img' src="+top15_business[i].group_photo.photo_link+"><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div>");
-            $('#business-carousel').append("<div class='slick-list' data-id="+top15_business[i]._id+" style='background-image: url("+top15_business[i].group_photo.photo_link+");'><div class='overlay'></div><h4 class='carousel-text'>"+top15_business[i].name+"</h4></div>");
-
+            }
         }
         
-        //ondivclick
-            
+        populateCarousels(data);
+        
+      ///////////////////////
+     //MODAL DATA HANDLING//
+    ///////////////////////
+            $('.slick-list').hover(function(){
+                $('.carousel-text').attr('opacity','1');
+            });
+
             $('.slick-list').click(function(e){
                 
                 var currentID = $(this).attr('data-id');
-                console.log(currentID);
-                info = get_event_info(currentID);
-                $('#modal-overlay').css('display','block');
-
-                console.log(info);
+                get_event_info(currentID);
+                
             });
+
             $('#modal-overlay').click(function(e){
                 $('#modal-overlay').css('display','none');
             });
-            
+        
+            var getModalInfo = function(data){
+                console.log(data['description']);
+                $('#modal-overlay').css('display','block');
+                $('#modal-image1').attr('src',data.group_photo.photo_link);
+                $('#modal-description').html(data.description);
+                $('.modal-title').text(data.name);
+
+             }
+
             var get_event_info = function(id){
-                console.log(id)
-            $.ajax({
+                //console.log(id);
+                var data;
+                $.ajax({
                      type: "POST",
-                     contentType: "text/plain; charset=utf-8",
                      url: "/event/?id="+id,
                      dataType: "text",
                      async: true,
                      data: id,
                      success: function (res) {
-                       console.log(res);
-                    },
+                        getModalInfo(JSON.parse(res.replace(/\bNaN\b/g, "null")));
+                        },
                     error: function (err) {
                         console.log(err);
                         }
-                })
-                /*$.post('/event',{
-                    data:id
-
-                }).done(function(res){
-                    console.log(res);
-                }).fail(function(err){
-                    console.log(err);
-                });*/
-        }
-        
-
-        
-
-
+                });        
+            }
 
     </script>
 
