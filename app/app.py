@@ -15,7 +15,7 @@ app= Flask(__name__)
 def home():
 	data= unpersonal_recommender.get_top_100_groups()
 	data = ast.literal_eval(data)
-	print type(data[0])
+	print data[0]
 	#print data
 	return render_template('home.html', data=data)
 
@@ -25,8 +25,9 @@ def login():
 	id_list = personalized.recommend_texts(text,personalized._id_df,personalized.count_vectorizer,personalized.tfidf,personalized.lsi,personalized.index)
 	#print type(id_list)
 	recommended_groups = personalized.get_id_list(id_list)
-	print type(recommended_groups[0])
-	#recommended_groups=ast.literal_eval(recommended_groups)
+	#print recommended_groups
+	#print type(recommended_groups)
+	recommended_groups=ast.literal_eval(recommended_groups) 
 	#print type(recommended_groups)
 	#print id_list
 	#data= unpersonal_recommender.get_top_100_groups()

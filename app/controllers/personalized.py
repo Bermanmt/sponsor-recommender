@@ -29,17 +29,27 @@ def recommend_texts(text,_id_df,count_vectorizer,tfidf,lsi,index):
 	metis_tfidf_corpus = tfidf[metis_corpus]
 	metis_lsi_corpus = lsi[metis_tfidf_corpus]
 	metis_doc_vecs = [doc for doc in metis_lsi_corpus]
-	index.num_best=1000
+	index.num_best=500
 	my_index=index[metis_doc_vecs]
 	id_list = [str(_id_df[i[0]]) for i in my_index[0]]
 	return id_list
 
 def get_id_list(id_list):
-	groups =[]
-	for i in id_list:
-		group = groups_clean_extra_col.find_one({'_id':ObjectId(i)},{'_id':0})
-		groups.append(json.dumps(group))
-	return groups
+	ids = map(lambda x: ObjectId(x),id_list)
+	#groups= groups_clean_extra_col.find({'_id':{'$in':ids}})
+	groups=groups_clean_extra_col.find({'_id':{'$in':ids},'category':{'$exists':True},'group_photo':{'$exists':True}},{'_id':1,'name':1,'sponsor_score':1,'category':1,'group_photo':1}).sort([("sponsor_score", pymongo.DESCENDING)]).limit(100)
+	top_list = []
+	top_list = []
+	for i in groups:
+		i['_id']=str(i['_id'])
+		top_list.append(i)
+	return json.dumps(top_list)
+	# groups =[]
+	# for i in id_list:
+	# 	group = groups_clean_extra_col.find_one({'_id':ObjectId(i)})
+	# 	group['_id']=str(group['_id'])
+	# 	groups.append(json.dumps(group))
+	# return groups
 
 # print recommend_texts(['Metis accelerates the careers of data scientists by providing full-time immersive bootcamps,\
 # evening professional development courses, online training and corporate programs.Train you to think and act like a data scientist.\

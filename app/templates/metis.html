@@ -31,7 +31,7 @@
     <div id='banner'>
         <div class='container'>
             <div id='featured-meetup'>
-               {{data[1]}}
+               {{data[0].rating}}
             </div>
         </div>
 
@@ -40,11 +40,7 @@
         <h3 style='margin-bottom:20px;margin-top:20px'>Top Recommendations</h3>
         <div class="slick-slider" id='general-carousel' >
 
-            <!--{%for group in data %}
-                <div class="slick-list" data-id="{{group._id}}"><img class='group-img' src="{{group.group_photo.photo_link}}" ><h4 class='carousel-text'>{{group.name}}</h4></div>-->
-                <!--<div class="slick-list" data-id="{{group._id}}" style='background-image: url({{group.group_photo.photo_link}});'><div class='overlay'></div><h4 class='carousel-text'>{{group.name}}</h4></div>
-            {%endfor%}-->
-        </div>
+                    </div>
         <br>
         <br>
         <h3 style='margin-bottom:20px;margin-top:20px'>Top for Tech</h3>
@@ -75,42 +71,12 @@
     <script type="text/javascript" src='static/js/jquery-1.12.2.min.js'> </script>
     <script type="text/javascript" src='static/js/owl.carousel.min.js'> </script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
-
-    <script>
-        /*$('#general-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            navText:['&#x27;pruebs&#x27;','&#x27;prev&#x27;'],
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        })
-        $('#tech-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            navText:['&#x27;pruebs&#x27;','&#x27;prev&#x27;'],
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        })*/
+    <!--<script>
+        var data = {{data|safe}};
+        console.log(typeof data[0]);
+    </script>-->
+   <script>
+       
         $(document).ready(function(){
             $('#tech-carousel').slick({
                 infinte:true,
@@ -143,8 +109,21 @@
 
         //General Variable
         var data = {{data|safe}};
+        console.log(data);
+        //var parsed_data = [];
+        //var parsed_data = JSON.parse()
+        //var parseToJson=function(s){
+        //    return JSON.parse(s.replace(/\bNaN\b/g, "null"))
+        //}
+
+        // for(i=0;i<new_data.length;i++){
+        //     parsed_data.push(parseToJson(new_data[i]));
+        // }
+        // console.log(parsed_data[0].ranking);
+        //console.log(data);
         var top15_tech;
         var top25_general;
+
         //Variables for secondary sliders
         var getTop15=function(groups, category_name){
             var top=[];
